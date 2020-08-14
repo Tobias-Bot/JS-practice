@@ -1,0 +1,64 @@
+<script>
+
+/***********************************************/
+/* #1 Reverse array without creating a new one */
+/***********************************************/
+
+Array.prototype.ReverseArray = function () {
+  let len = this.length;
+
+  for (let i = 0; i < len / 2; i++) {
+    let buf = this[i];
+    this[i] = this[len - i - 1];
+    this[len - i - 1] = buf;
+  }
+
+  return this;
+};
+
+// console.log([0, 1, 2, 3, 4].ReverseArray());
+
+
+/**************************/
+/* #2 What is the output? */
+/**************************/
+
+let a = {
+  name: "test",
+};
+
+let b = {
+  name: "test",
+};
+
+/* 
+a == b (false) and a === b (false). That's false because
+a and b are sources, aren't values and they point on different
+parts of memory and that's why they aren't equal
+*/
+
+
+/************************************************/
+/* #3 Will it change the value in the function? */
+/************************************************/
+
+let s = "Hello";
+
+const F = (a) => {
+  a = "Hi";
+};
+
+F(s);
+
+/* 
+It won't change the value in the function, because
+string type isn't referencial and for example arrays
+and objects work the other way.
+*/
+
+
+/************************************************/
+/* #4 Will it change the value in the function? */
+/************************************************/
+
+</script>
