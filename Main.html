@@ -57,8 +57,74 @@ and objects work the other way.
 */
 
 
-/************************************************/
-/* #4 Will it change the value in the function? */
-/************************************************/
+/*********************/
+/* #4 Find max value */
+/*********************/
+
+Array.prototype.MaxVal = function() {
+  let arr = this;
+  let len = arr.length;
+  let max = 0;
+
+  for (let i = 0; i < len; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+  }
+
+  return max;
+}
+
+// console.log([-5, 10, 12.4, 335, 5.8, 41.1].MaxVal());
+
+/*************************/
+/* #5 What is the output */
+/*************************/
+
+for (var i = 0; i < 3; i++) {
+  setTimeout(function() {
+    // console.log(i);
+  }, 0);
+}
+
+// 3 3 3
+
+// This output because of the i variable which was declared
+// as a global (var). It was implemented in the last iteration
+// and that's why it equals 3.
+
+// To resolve this problem you need to put let instead of var
+// in the cycle to make i local variable. The second way to
+// resolve this task is put parameters in the function of
+// setTimeout() like this: 
+
+// setTimeout(function(i) {
+//   // console.log(i);
+// }, 0, i);
+
+/***********************/
+/* #6 Find palindromes */
+/***********************/
+
+Array.prototype.FindPalindromes = function() {
+  let arr = this;
+  let result = [];
+
+  for (let str of arr) {
+    let len = str.length;
+
+    let a = Math.floor(len / 2);
+    let b = !(len % 2) ? a : Math.ceil(len / 2);
+
+    let part1 = str.substring(0, a);
+    let part2 = str.substring(b, len);
+
+    if (part1 === part2.split('').reverse().join('')) result.push(str);
+  }
+
+  return result;
+};
+
+// console.log(['abcba', '214890jf', '47387834', 'ffffff', '01700710'].FindPalindromes());
 
 </script>
