@@ -127,4 +127,31 @@ Array.prototype.FindPalindromes = function() {
 
 // console.log(['abcba', '214890jf', '47387834', 'ffffff', '01700710'].FindPalindromes());
 
+/***************************************************/
+/* #7 Find Fibonacci number. Input: serial number; */
+/* Output: number. Function must be recursive      */
+/***************************************************/
+
+let num = 0;
+let prev = 1;
+let old = 0;
+let counter = 1;
+
+function FindFibonacciNum(i) {
+
+  old = prev;
+  prev = num;
+  num = old + num;
+
+  if (counter == i) {
+    return num;
+  }
+
+  counter++;
+
+  return FindFibonacciNum(i);
+}
+
+// console.log('FibonacciNum:',FindFibonacciNum(8));
+
 </script>
